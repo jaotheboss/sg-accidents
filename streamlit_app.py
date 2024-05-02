@@ -16,8 +16,6 @@ def export_data(df):
 df = load_data()
 csv = export_data(df)
 
-# col1, col2 = st.columns(2)
-
 st.subheader("Map")
 map = folium.Map([1.3500,103.8850], zoom_start=11.1)
 location_data = df[['Latitude', 'Longitude']].to_numpy()
@@ -27,7 +25,7 @@ map.add_children(plugins.HeatMap(location_data, radius=10))
 st_map = st_folium(map, width=900, height=450)
 
 st.subheader("Latest occurences:")
-st.dataframe(df.head(5))
+st.dataframe(df.head(10))
 st.download_button(
    "Download",
    csv,
