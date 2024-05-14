@@ -4,7 +4,7 @@ import folium
 from folium import plugins
 from streamlit_folium import st_folium
 
-@st.cache_resource
+@st.cache_data
 def load_data():
    df = pd.read_csv(st.secrets["data_url"]) 
    return df
